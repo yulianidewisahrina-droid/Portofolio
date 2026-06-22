@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Portofolio Personal Dewi Sahrina Yuliani - Mahasiswa Teknik Informatika">
+    <meta name="keywords" content="Portofolio, IT, Web Development, Python, Data, Dewi Sahrina Yuliani">
+    <meta name="author" content="Dewi Sahrina Yuliani">
+    
+    <!-- Open Graph for Social Media -->
+    <meta property="og:title" content="Dewi Sahrina Yuliani | Portfolio">
+    <meta property="og:description" content="Mahasiswa Teknik Informatika ITPLN | Web Dev, Python & Data">
+    <meta property="og:type" content="website">
+    
+    <title>Dewi Sahrina Yuliani | Portfolio</title>
+    
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        pinkSoft: '#FFB6C1',
+                        pinkLight: '#FFC0CB',
+                        darkBg: '#121212',
+                        darkCard: '#1E1E1E'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Styles & Animations */
+        body { font-family: 'Poppins', sans-serif; }
+        
+        /* Typing cursor */
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink { 50% { opacity: 0; } }
+
+        /* Timeline Line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #FFB6C1;
+        }
+        @media (min-width: 768px) {
+            .timeline-line::before { left: 50%; transform: translateX(-50%); }
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        .dark ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-thumb { background: #FFB6C1; border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: #FFC0CB; }
+    </style>
+</head>
+<body class="bg-white text-gray-800 dark:bg-darkBg dark:text-gray-200 transition-colors duration-300">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-40 transition-all duration-300 bg-white/80 dark:bg-darkBg/80 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-end md:justify-center items-center h-20">
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="hover:text-pinkSoft transition">Home</a>
+                    <a href="#about" class="hover:text-pinkSoft transition">Tentang</a>
+                    <a href="#resume" class="hover:text-pinkSoft transition">Resume</a>
+                    <a href="#projects" class="hover:text-pinkSoft transition">Project</a>
+                    <a href="#certifications" class="hover:text-pinkSoft transition">Sertifikasi</a>
+                    
+                    <!-- Dark Mode Toggle -->
+                    <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition ml-4">
+                        <i id="theme-icon" class="fas fa-moon text-gray-600 dark:text-yellow-400"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button & Dark Mode -->
+                <div class="md:hidden flex items-center gap-4">
+                    <button id="theme-toggle-mobile" class="p-2">
+                        <i id="theme-icon-mobile" class="fas fa-moon text-gray-600 dark:text-yellow-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="text-gray-600 dark:text-gray-200 focus:outline-none">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white dark:bg-darkBg border-t dark:border-gray-800 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-1 text-center">
+                <a href="#home" class="block px-3 py-2 hover:text-pinkSoft">Home</a>
+                <a href="#about" class="block px-3 py-2 hover:text-pinkSoft">Tentang</a>
+                <a href="#resume" class="block px-3 py-2 hover:text-pinkSoft">Resume</a>
+                <a href="#projects" class="block px-3 py-2 hover:text-pinkSoft">Project</a>
+                <a href="#certifications" class="block px-3 py-2 hover:text-pinkSoft">Sertifikasi</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section 1: Hero -->
+    <section id="home" class="min-h-screen flex items-center justify-center pt-20 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center gap-12">
+            <div class="flex-1 text-center md:text-left" data-aos="fade-right">
+                <p class="text-pinkSoft font-medium mb-2">Halo, Selamat Datang!</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-900 dark:text-white">
+                    Saya <span class="text-pinkSoft">Dewi Sahrina Yuliani</span>
+                </h1>
+                <h2 class="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-6 font-light">
+                    <span id="typing-text" class="typing-cursor font-medium"></span>
+                </h2>
+                <p class="text-gray-500 dark:text-gray-400 mb-8 max-w-lg mx-auto md:mx-0 leading-relaxed">
+                    Mahasiswa Teknik Informatika semester 6 dengan pengalaman magang sebagai Assistant Manager di PLN Group. Memiliki kompetensi dalam Data Analytics, Web Development, Android Development, dan Database Management. Terampil menggunakan Power BI dan Tableau, Paython, dan SQL untuk analisis data dan visualisasi informasi. Memiliki kemampuan komunikasi, kolaborasi, dan problem solving yang baik serta antusias dalam mengembangkan solusi digital berbasis teknologi.
+                </p>
+                <div class="flex justify-center md:justify-start mb-8">
+                    <a href="#projects" class="px-8 py-3 bg-pinkSoft hover:bg-pinkLight text-white rounded-full transition shadow-lg shadow-pinkSoft/30 font-medium inline-flex items-center gap-2">
+                        <i class="fas fa-briefcase"></i> Lihat Portofolio
+                    </a>
+                </div>
+                
+                <!-- Social Media & Contact Icons -->
+                <p class="text-sm text-gray-400 mb-4">Temukan saya di:</p>
+                <div class="flex gap-4 justify-center md:justify-start">
+                    <a href="https://github.com/yulianidewisahrina-droid" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-pinkSoft hover:text-white transition shadow-sm" title="GitHub">
+                        <i class="fab fa-github text-xl"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/dewi-sahrina-yuliani-94358a322/" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-pinkSoft hover:text-white transition shadow-sm" title="LinkedIn">
+                        <i class="fab fa-linkedin-in text-xl"></i>
+                    </a>
+                    <a href="mailto:yulianidewisahrina@gmail.com" class="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-pinkSoft hover:text-white transition shadow-sm" title="Email">
+                        <i class="fas fa-envelope text-xl"></i>
+                    </a>
+                    <a href="https://wa.me/6285342791461" target="_blank" class="w-12 h-12 rounded-full flex items-center justify-center bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-pinkSoft hover:text-white transition shadow-sm" title="WhatsApp">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="flex-1 flex justify-center" data-aos="fade-left">
+                <div class="relative w-25 h-25 md:w-80 md:h-80">
+                    <div class="absolute inset-0 bg-pinkLight rounded-full animate-pulse blur-xl opacity-50"></div>
+                    <img src="./magentaku profil.jpg" alt="" class="relative z-10 w-full h-full object-cover rounded-full border-4 border-white dark:border-darkBg shadow-2xl">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2: Tentang Saya -->
+    <section id="about" class="py-20 bg-gray-50 dark:bg-darkCard transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Tentang <span class="text-pinkSoft">Saya</span></h2>
+                <div class="w-16 h-1 bg-pinkSoft mx-auto mt-4 rounded"></div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="w-full md:w-1/3" data-aos="fade-right">
+                    <img src="./inaaaaa manis.jpg" alt="Profile" class="w-full max-w-sm mx-auto rounded-2xl shadow-xl">
+                </div>
+                <div class="w-full md:w-2/3" data-aos="fade-left">
+                    <h3 class="text-2xl font-semibold mb-4 dark:text-white">Mahasiswa IT & Pengembang Profesional</h3>
+                    <p class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">
+                        Pembelajar cepat yang berdedikasi tinggi dalam mengintegrasikan aspek teknis informatika dengan strategi bisnis. Menguasai manajemen basis data dan pengembangan sistem, siap berkontribusi aktif melahirkan solusi cerdas yang efisien, terstruktur, dan berorientasi pada pengguna.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-8">
+                        <div class="p-4 bg-white dark:bg-darkBg rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-center">
+                            <i class="fas fa-code text-2xl text-pinkSoft mb-2"></i>
+                            <h4 class="font-medium text-sm dark:text-gray-200 mt-2">Web Dev</h4>
+                        </div>
+                        <div class="p-4 bg-white dark:bg-darkBg rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-center">
+                            <i class="fab fa-python text-2xl text-pinkSoft mb-2"></i>
+                            <h4 class="font-medium text-sm dark:text-gray-200 mt-2">Python</h4>
+                        </div>
+                        <div class="p-4 bg-white dark:bg-darkBg rounded-xl shadow-sm border border-gray-100 dark:border-gray-800 text-center col-span-2 sm:col-span-1">
+                            <i class="fas fa-chart-pie text-2xl text-pinkSoft mb-2"></i>
+                            <h4 class="font-medium text-sm dark:text-gray-200 mt-2">Data</h4>
+                        </div>
+                    </div>
+
+                    <!-- Stats -->
+                    <div class="grid grid-cols-3 gap-6 text-center border-t border-gray-200 dark:border-gray-700 pt-8">
+                        <div>
+                            <h4 class="text-3xl font-bold text-pinkSoft">15+</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Project Selesai</p>
+                        </div>
+                        <div>
+                            <h4 class="text-3xl font-bold text-pinkSoft">5+</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Sertifikasi</p>
+                        </div>
+                        <div>
+                            <h4 class="text-3xl font-bold text-pinkSoft">3+</h4>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Pengalaman Org</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8">
+                        <a href="#" class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-full hover:bg-gray-800 dark:hover:bg-gray-100 transition shadow-lg">
+                            <i class="fas fa-download"></i> Download CV
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Area (Education & Experience memanjang ke bawah) -->
+    <section id="resume" class="py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Perjalanan <span class="text-pinkSoft">Karier & Pendidikan</span></h2>
+                <div class="w-16 h-1 bg-pinkSoft mx-auto mt-4 rounded"></div>
+            </div>
+
+            <!-- BAGIAN 1: PENDIDIKAN (Posisi Di Atas) -->
+            <div data-aos="fade-up" class="max-w-4xl mx-auto mb-20">
+                <h3 class="text-2xl font-semibold mb-10 flex items-center justify-center gap-3 dark:text-white">
+                    <i class="fas fa-graduation-cap text-pinkSoft"></i> Pendidikan
+                </h3>
+                <div class="relative timeline-line pl-10 md:pl-0">
+                    <!-- Edu 1 -->
+                    <div class="relative mb-10 md:w-1/2 md:pr-10 md:ml-0 md:text-right group">
+                        <div class="absolute left-[-45px] md:left-auto md:right-[-45px] top-0 w-4 h-4 bg-white border-4 border-pinkSoft rounded-full z-10 group-hover:bg-pinkSoft transition"></div>
+                        <div class="bg-gray-50 dark:bg-darkCard p-6 rounded-xl shadow-sm hover:shadow-md transition border border-transparent dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft text-left md:text-right">
+                            <span class="px-3 py-1 bg-pinkLight/20 text-pinkSoft text-xs rounded-full font-medium mb-3 inline-block">2023 - Sekarang</span>
+                            <h4 class="text-lg font-bold text-gray-900 dark:text-white">S1 Teknik Informatika</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">Institut Teknologi PLN-Jakarta</p>
+                        </div>
+                    </div>
+                    <!-- Edu 2 -->
+                    <div class="relative mb-10 md:w-1/2 md:pl-10 md:ml-auto group">
+                        <div class="absolute left-[-45px] top-0 w-4 h-4 bg-white border-4 border-pinkSoft rounded-full z-10 group-hover:bg-pinkSoft transition"></div>
+                        <div class="bg-gray-50 dark:bg-darkCard p-6 rounded-xl shadow-sm hover:shadow-md transition border border-transparent dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft text-left">
+                            <span class="px-3 py-1 bg-pinkLight/20 text-pinkSoft text-xs rounded-full font-medium mb-3 inline-block">2019 - 2022</span>
+                            <h4 class="text-lg font-bold text-gray-900 dark:text-white">SMA / Sederajat</h4>
+                            <p class="text-gray-600 dark:text-gray-400 text-sm mt-1">SMA Negeri 8 Sidrap-Sulawesi Selatan</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BAGIAN 2: PENGALAMAN (Posisi Di Bawah, format Grid 3 Kolom) -->
+            <div data-aos="fade-up" class="pt-10 border-t border-gray-100 dark:border-gray-800">
+                <h3 class="text-2xl font-semibold mb-10 flex items-center justify-center gap-3 dark:text-white">
+                    <i class="fas fa-briefcase text-pinkSoft"></i> Pengalaman
+                </h3>
+                
+                <!-- Grid 3 Kolom untuk Pengalaman -->
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="experience-list">
+                    
+                    <!-- Pengalaman 1 -->
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <!-- Ganti src di bawah ini dengan foto kegiatan/dokumentasi -->
+                            <img src="./img/manger.jpg" alt="Dokumentasi PLN" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">   
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">IT Intern</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">PT PLN (Persero)</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">2026</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Intern Assistant Manager di PLN Group yang fokus pada validasi data pelanggan untuk keputusan operasional. Mendukung Engineering Services Manager dalam inspeksi lapangan, analisis teknis, dan penyusunan laporan berkala. Berperan aktif mengelola dokumentasi standar serta berkolaborasi antarunit demi mengoptimalkan efisiensi alur kerja dan kualitas layanan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Pengalaman 2 -->
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/penanggung jawab gemas.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Gebyar Mahasiswa ITPLN</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Penanggung Jawab Gebyar Mahasiswa #8</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">2025</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Mengelola perencanaan dan pelaksanaan program seni, budaya, serta olahraga untuk mengembangkan kreativitas mahasiswa. Bertanggung jawab mengoordinasikan organisasi internal, menginisiasi forum pelatihan atau kompetisi, serta memimpin operasional dan mitigasi risiko acara guna memastikan seluruh kegiatan mahasiswa berjalan efektif, aman, dan mencapai target.</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/project.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Project CAMPUSQUEST</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Project Manager</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">2025</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Merancang aplikasi gamifikasi kampus yang membantu meningkatkan partisipasi mahasiswa dalam kegiatan akademik dan non-akademik melalui sistem quest, poin, badge, dan leaderboard. Proyek mencakup analisis kebutuhan, perancangan UML, perencanaan proyek, manajemen risiko, serta desain sistem menggunakan prinsip Manajemen Proyek Perangkat Lunak..</p>
+                        </div>
+                    </div>
+
+                    
+                                     
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/project 2.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Mobile Application Development Project FoodSaver</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Mobile Developer</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">Mar 2025</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Bertanggung jawab dalam perancangan antarmuka, implementasi fitur aplikasi, pengelolaan data, serta pengujian fungsionalitas untuk memastikan aplikasi berjalan dengan baik di perangkat Android.</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/SENBUDORA.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Staff Seni Budaya & Olahraga</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">BEM KBM</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">Mar 2024-2025</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Mengelola koordinasi dengan UKM, memfasilitasi komunikasi mahasiswa, serta berkontribusi dalam perencanaan dan pelaksanaan kegiatan kampus untuk meningkatkan keterlibatan mahasiswa dan pengembangan soft skills. Melakukan evaluasi program guna meningkatkan kualitas dan efektivitas kegiatan organisasi.</p>
+                        </div>
+                    </div>
+
+                    
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/tim kaderisasi.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-
+                            ">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Kaderisasi Himpunan Mahasiswa IT</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Staff</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">Mar 2025-2026</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Berperan dalam pengelolaan kaderisasi internal himpunan melalui perencanaan, pelaksanaan, dan evaluasi program kerja, serta membangun komunikasi dan partisipasi aktif anggota untuk pengembangan organisasi.</p>
+                        </div>
+                    </div>
+
+                         
+                    <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/DUMAS1.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Kepanitiaan Duta Mahasiswa ITPLN</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Divisi Acara/MC</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">Mar 2025</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Berperan dalam menyusun konsep acara, mengatur rundown kegiatan, serta menjadi pembawa acara (MC) dalam rangkaian kegiatan Duta Mahasiswa ITPLN. Bertanggung jawab menjaga kelancaran acara, membangun suasana yang interaktif, serta memastikan setiap sesi berjalan sesuai jadwal dan tujuan kegiatan.</p>
+                        </div>
+                    </div>
+
+                      <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/Penyambutan mahasiswa himda.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">HIMPUNAN DAERAH CELEBES</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Departemen Kominfo</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">Mar 2025-2026</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Berperan dalam pengelolaan informasi dan komunikasi organisasi, termasuk publikasi kegiatan, pengelolaan media sosial, serta penyebaran informasi kepada anggota agar komunikasi internal berjalan efektif dan terkoordinasi.</p>
+                        </div>
+                    </div>
+
+                     <div class="bg-white dark:bg-darkCard rounded-xl overflow-hidden shadow-sm hover:shadow-md transition duration-300 border border-gray-100 dark:border-gray-800 hover:border-pinkSoft dark:hover:border-pinkSoft group">
+                        <!-- Foto Dokumentasi -->
+                        <div class="relative h-48 overflow-hidden">
+                            <img src="./img/kam inggris.jpg" alt="Dokumentasi GSA" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        </div>
+                        <div class="p-6">
+                            <div class="flex justify-between items-start mb-2">
+                                <div>
+                                    <h4 class="text-lg font-bold text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Dominic English</h4>
+                                    <p class="text-sm text-gray-600 dark:text-gray-400 font-medium">Kampung Inggris Pare Cours</p>
+                                </div>
+                                <span class="text-xs text-pinkSoft font-medium bg-pinkLight/10 px-3 py-1 rounded-full whitespace-nowrap">Mar 2025</span>
+                            </div>
+                            <p class="text-sm text-gray-500 dark:text-gray-400 mt-3 leading-relaxed">Mengikuti program pembelajaran bahasa Inggris di Kampung Inggris Pare untuk meningkatkan kemampuan speaking, listening, reading, dan writing. Berfokus pada pengembangan komunikasi aktif, percakapan sehari-hari, serta peningkatan kepercayaan diri dalam berbahasa Inggris melalui kelas intensif dan praktik langsung.</p>
+                        </div>
+                    </div>
+
+                   
+
+                    <!-- ========================================================================= -->
+                    <!-- PANDUAN CARA MENAMBAHKAN PENGALAMAN BARU:                                 -->
+                    <!-- 1. Copy blok kode <div class="bg-white..."> sampai dengan penutup </div>  -->
+                    <!--    (Bisa copy dari Pengalaman 1 atau Pengalaman 2 di atas).               -->
+                    <!-- 2. Paste kodenya persis di bawah garis komentar ini.                      -->
+                    <!-- 3. Ubah bagian:                                                           -->
+                    <!--    - src="..." (Link Gambar Dokumentasi Anda)                             -->
+                    <!--    - <h4>...</h4> (Judul Jabatan / Posisi)                                -->
+                    <!--    - <p>...</p> (Nama Perusahaan / Organisasi)                            -->
+                    <!--    - <span>...</span> (Tahun pelaksaanaan)                                -->
+                    <!--    - <p>...</p> (Deskripsi tugas yang Anda kerjakan)                      -->
+                    <!-- Karena menggunakan format Grid 3 Kolom, kotak akan berjajar ke samping    -->
+                    <!-- maksimal 3 kotak, jika lebih akan otomatis turun ke baris bawahnya.       -->
+                    <!-- ========================================================================= -->
+                    
+                </div>
+            </div>
+
+            <!-- Section 6: Skills -->
+            <div class="mt-24 pt-10 border-t border-gray-100 dark:border-gray-800" data-aos="fade-up">
+                <h3 class="text-2xl font-semibold mb-8 text-center dark:text-white">Keahlian <span class="text-pinkSoft">Teknis</span></h3>
+                <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">HTML/CSS</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">JavaScript</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">Google Collab</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">PHP</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">MySQL / MariaDB</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">Python</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">Java & Kotlin</span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">Power BI </span>
+                    <span class="px-4 py-2 bg-white dark:bg-darkCard border border-gray-200 dark:border-gray-700 rounded-full shadow-sm text-sm font-medium hover:-translate-y-1 hover:border-pinkSoft hover:text-pinkSoft transition dark:text-gray-300">Microsoft Excel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5: Projects -->
+    <section id="projects" class="py-20 bg-gray-50 dark:bg-darkCard transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Karya & <span class="text-pinkSoft">Project</span></h2>
+                <div class="w-16 h-1 bg-pinkSoft mx-auto mt-4 rounded"></div>
+                <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">Beberapa proyek pilihan yang telah saya kerjakan mencakup pengembangan sistem, aplikasi mobile, hingga integrasi database dan IoT.</p>
+            </div>
+
+            <!-- Project Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="project-list">
+                <!-- Card 1 -->
+                <div class="bg-white dark:bg-darkBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer" data-aos="zoom-in" onclick="openModal('modal1')">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./img/foodsaver mobile.png" alt="Project 1" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium border border-white px-4 py-2 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <div class="p-6">   
+                        <h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-pinkSoft transition">Aplikasi Mobile Food Saver</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Food Saver adalah aplikasi yang dirancang untuk membantu pengguna mengurangi pemborosan makanan (food waste) dengan cara mengelola persediaan makanan, memantau tanggal kedaluwarsa, memberikan pengingat, serta menyarankan resep berdasarkan bahan makanan yang tersedia.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Android Studio</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Kotlin</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-white dark:bg-darkBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer" data-aos="zoom-in" data-aos-delay="100" onclick="openModal('modal2')">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./img/fashion.png" alt="Project 2" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium border border-white px-4 py-2 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-pinkSoft transition">Desain Web Boostrap untuk UMKM Fashion</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Boostrap adalah kerangka Kerja  framework CSS, HTML dan JavaScript</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">HTML</span>
+                              <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">CSS</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Database</span>
+                              <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">Boostrap</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-white dark:bg-darkBg rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 group cursor-pointer" data-aos="zoom-in" data-aos-delay="200" onclick="openModal('modal3')">
+                    <div class="relative overflow-hidden h-48">
+                        <img src="./img/landingpage.png" alt="Project 3" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                        <div class="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                            <span class="text-white font-medium border border-white px-4 py-2 rounded-full">Lihat Detail</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 dark:text-white group-hover:text-pinkSoft transition">Landing Pages FoodSaver</h3>
+                        <p class="text-gray-500 dark:text-gray-400 text-sm mb-4 line-clamp-2">Food Saver Landing Page adalah halaman web khusus yang dibuat untuk memperkenalkan dan mempromosikan layanan atau produk Food Saver kepada pengunjung.</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">HTML</span>
+                            <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">tailwind</span>
+                              <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">CSS</span>
+                                <span class="text-xs px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 rounded">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Sertifikasi -->
+     
+   <section id="certifications" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-16" data-aos="fade-up">
+            <h2 class="text-3xl font-bold text-gray-900 dark:text-white">Sertifikasi & <span class="text-pinkSoft">Penghargaan</span></h2>
+            <div class="w-16 h-1 bg-pinkSoft mx-auto mt-4 rounded"></div>
+            <p class="text-gray-500 dark:text-gray-400 mt-4 max-w-2xl mx-auto">Pengakuan profesional dan sertifikasi kompetensi yang telah saya raih selama perjalanan karier.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <div class="bg-white dark:bg-darkCard border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:border-pinkSoft dark:hover:border-pinkSoft transition overflow-hidden group cursor-pointer" data-aos="fade-up" onclick="openModal('path-ke-gambar-sertifikat1.jpg')">
+                <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                    <img src="./img/PLN ULP NUSANIWE.png" alt="Google IT Support Professional Certificate" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-pinkLight/20 text-pinkSoft rounded-full flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Magang 1 Bulan PLN Group</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Institut Teknologi PLN (IT-PLN) | No: 0098.920/SER/1/D0/04/2026</p>
+                    <span class="text-xs text-pinkSoft font-medium mt-4 block border-t border-gray-100 dark:border-gray-800 pt-3">Diterbitkan: Februari 2026</span>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:border-pinkSoft dark:hover:border-pinkSoft transition overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="100" onclick="openModal('path-ke-gambar-sertifikat2.jpg')">
+                <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                    <img src="./img/ldkm.png" alt="Sertifikat Kedua" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-pinkLight/20 text-pinkSoft rounded-full flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Navigating Leadership with Firewall Spirit</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Fakultas Telematika Energi, Institut Teknologi PLN (IT-PLN) | No: 141/276/SER/4/D0/07/2024</p>
+                    <span class="text-xs text-pinkSoft font-medium mt-4 block border-t border-gray-100 dark:border-gray-800 pt-3">Diterbitkan: Juli 2024</span>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:border-pinkSoft dark:hover:border-pinkSoft transition overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200" onclick="openModal('path-ke-gambar-sertifikat3.jpg')">
+                <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                    <img src="./img/Alumni dan karrir.png" alt="Sertifikat Ketiga" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-pinkLight/20 text-pinkSoft rounded-full flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Peningkatan Kesiapan Lulusan dalam Menghadapi Dunia Kerja dan Proses Rekrutmen</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Institut Teknologi PLN (IT-PLN) | No: 0110/SER/1/A0/05/2026</p>
+                    <span class="text-xs text-pinkSoft font-medium mt-4 block border-t border-gray-100 dark:border-gray-800 pt-3">Diterbitkan: Mei 2026</span>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:border-pinkSoft dark:hover:border-pinkSoft transition overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200" onclick="openModal('path-ke-gambar-sertifikat3.jpg')">
+                <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                    <img src="./img/ldc.jpg" alt="Sertifikat Ketiga" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-pinkLight/20 text-pinkSoft rounded-full flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Basic English Education Standardization (BEES)</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Language Development Center (LDC), Institut Teknologi PLN Jakarta (IT-PLN) | No: 3435/E032/BEES/13/02/2024</p>
+                    <span class="text-xs text-pinkSoft font-medium mt-4 block border-t border-gray-100 dark:border-gray-800 pt-3">Diterbitkan: 13 Februari 2024</span>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:border-pinkSoft dark:hover:border-pinkSoft transition overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200" onclick="openModal('path-ke-gambar-sertifikat3.jpg')">
+                <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                    <img src="./img/SERTIFIKAT PENGHARGAAN.jpg" alt="Sertifikat Ketiga" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-pinkLight/20 text-pinkSoft rounded-full flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white group-hover:text-pinkSoft transition">Pentas Cerita Nasional Ke-4 Festival Penulis 2026</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">Penghargaan atas kontribusi karya yang inovatif dan menginspirasi</p>
+                    <span class="text-xs text-pinkSoft font-medium mt-4 block border-t border-gray-100 dark:border-gray-800 pt-3">Diterbitkan: 25 Januari 2026</span>
+                </div>
+            </div>
+
+            <div class="bg-white dark:bg-darkCard border border-gray-100 dark:border-gray-800 rounded-xl shadow-sm hover:border-pinkSoft dark:hover:border-pinkSoft transition overflow-hidden group cursor-pointer" data-aos="fade-up" data-aos-delay="200" onclick="openModal('path-ke-gambar-sertifikat3.jpg')">
+                <div class="w-full h-48 overflow-hidden bg-gray-100 dark:bg-gray-800 relative">
+                    <img src="./img/B ING.png" alt="Sertifikat Ketiga" class="w-full h-full object-cover group-hover:scale-105 transition duration-300">
+                    <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 flex items-center justify-center transition duration-300">
+                        <i class="fas fa-search-plus text-white text-2xl"></i>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="w-10 h-10 bg-pinkLight/20 text-pinkSoft rounded-full flex items-center justify-center text-lg mb-3">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-900 dark:text-white group-hover:text-pinkSoft transition">English Program for 1 Month</h3>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-1">14.546/DE/IX/2025</p>
+                    <span class="text-xs text-pinkSoft font-medium mt-4 block border-t border-gray-100 dark:border-gray-800 pt-3">Diterbitkan: September 2025</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<div id="certModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4 transition-all duration-300 opacity-0" onclick="closeModal()">
+    <button class="absolute top-6 right-6 text-white text-3xl hover:text-pinkSoft" onclick="closeModal()">&times;</button>
+    <div class="max-w-4xl max-h-[85vh] overflow-hidden" onclick="event.stopPropagation()">
+        <img id="modalImg" src="" alt="Sertifikat Full" class="max-w-full max-h-[85vh] rounded-lg shadow-2xl object-contain">
+    </div>
+</div>
+
+<script>
+    function openModal(imgSrc) {
+        const modal = document.getElementById('certModal');
+        const modalImg = document.getElementById('modalImg');
+        
+        modalImg.src = imgSrc;
+        modal.classList.remove('hidden');
+        setTimeout(() => {
+            modal.classList.remove('opacity-0');
+        }, 10);
+    }
+
+    function closeModal() {
+        const modal = document.getElementById('certModal');
+        modal.classList.add('opacity-0');
+        setTimeout(() => {
+            modal.classList.add('hidden');
+        }, 300);
+    }
+</script>
+               
+    <!-- Modal Popup for Project Details -->
+    <div id="project-modal" class="fixed inset-0 z-50 hidden bg-black/60 backdrop-blur-sm flex items-center justify-center px-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-white dark:bg-darkCard w-full max-w-3xl rounded-2xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300 max-h-[90vh] overflow-y-auto" id="modal-content">
+            <div class="relative h-64">
+                <img id="modal-img" src="" alt="Project Preview" class="w-full h-full object-cover">
+                <button onclick="closeModal()" class="absolute top-4 right-4 w-10 h-10 bg-black/50 hover:bg-pinkSoft text-white rounded-full flex items-center justify-center transition">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="p-8">
+                <h3 id="modal-title" class="text-2xl font-bold mb-2 dark:text-white">Nama Project</h3>
+                <div class="flex flex-wrap gap-2 mb-6" id="modal-tech">
+                    <!-- Tech badges will be injected here -->
+                </div>
+                <h4 class="font-semibold text-gray-900 dark:text-gray-200 mb-2">Deskripsi</h4>
+                <p id="modal-desc" class="text-gray-600 dark:text-gray-400 mb-6 leading-relaxed">Detail project akan muncul di sini.</p>
+                
+                <div class="flex flex-wrap gap-4">
+                    <a id="modal-github" href="#" target="_blank" class="px-6 py-2 bg-gray-900 dark:bg-white text-white dark:text-gray-900 rounded-lg hover:bg-pinkSoft dark:hover:bg-pinkSoft dark:hover:text-white transition flex items-center gap-2">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a id="modal-demo" href="#" target="_blank" class="px-6 py-2 border border-gray-300 dark:border-gray-600 rounded-lg hover:border-pinkSoft hover:text-pinkSoft transition flex items-center gap-2 dark:text-gray-300">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Lengkap & Profesional -->
+    <footer class="bg-gray-100 dark:bg-darkCard py-12 border-t border-gray-200 dark:border-gray-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-10 text-center md:text-left">
+                <!-- Kolom 1: Profil Singkat -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-pinkSoft inline-block pb-1">Dewi Sahrina Yuliani</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                        Mahasiswa Teknik Informatika ITPLN yang antusias menciptakan karya digital, berfokus pada pengembangan aplikasi web, pemrograman Python, dan analisis data.
+                    </p>
+                </div>
+                <!-- Kolom 2: Kontak & Domisili -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-pinkSoft inline-block pb-1">Hubungi Saya</h3>
+                    <ul class="text-gray-600 dark:text-gray-400 text-sm space-y-3">
+                        <li class="flex justify-center md:justify-start items-center gap-3">
+                            <i class="fas fa-map-marker-alt text-pinkSoft w-5 text-center"></i>
+                            Jakarta, Indonesia
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3">
+                            <i class="fas fa-envelope text-pinkSoft w-5 text-center"></i>
+                            <a href="mailto:emailanda@example.com" class="hover:text-pinkSoft transition">yulianidewisahrina@gmail.com</a>
+                        </li>
+                        <li class="flex justify-center md:justify-start items-center gap-3">
+                            <i class="fab fa-whatsapp text-pinkSoft w-5 text-center"></i>
+                            <a href="https://wa.me/62812XXXX" target="_blank" class="hover:text-pinkSoft transition">+62 853 4279 1461</a>
+                        </li>
+                            <li class="flex justify-center md:justify-start items-center gap-3">
+                            <i class="fab fa-instagram text-pinkSoft w-5 text-center"></i>
+                            <a href="https://instagram.com/yulianidewisahrina_" target="_blank" class="hover:text-pinkSoft transition">yulianidewisahrina_</a>
+                        </li>
+            
+                        <li class="flex justify-center md:justify-start items-center gap-3">
+                            <i class="fab fa-linkedin-in text-pinkSoft w-5 text-center"></i>
+                            <a href="https://www.linkedin.com/in/dewi-sahrina-yuliani-94358a322/" target="_blank" class="hover:text-pinkSoft transition">Dewi Sahrina Yuliani</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Kolom 3: Sosial Media -->
+                <div>
+                    <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-4 border-b-2 border-pinkSoft inline-block pb-1">Sosial Media</h3>
+                    <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+                        Mari terhubung dan kembangkan jaringan bersama!
+                    </p>
+                    <div class="flex gap-4 justify-center md:justify-start">
+                        <a href="https://github.com/UsernameAnda" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-darkBg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-pinkSoft hover:border-pinkSoft hover:text-white transition shadow-sm">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/dewi-sahrina-yuliani-94358a322/" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-darkBg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-pinkSoft hover:border-pinkSoft hover:text-white transition shadow-sm">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/6285342791461" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-darkBg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-pinkSoft hover:border-pinkSoft hover:text-white transition shadow-sm">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dewisahrinayuliani_?igsh=MW9sYTBiaWdudDJzaQ==" target="_blank" class="w-10 h-10 rounded-full flex items-center justify-center bg-white dark:bg-darkBg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 hover:bg-pinkSoft hover:border-pinkSoft hover:text-white transition shadow-sm">
+                             <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- Copyright -->
+            <div class="pt-8 border-t border-gray-200 dark:border-gray-800 text-center">
+                <p class="text-gray-500 dark:text-gray-400 text-sm">
+                    &copy; 2026 Dewi Sahrina Yuliani. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back To Top Button -->
+    <button id="backToTop" class="fixed bottom-6 right-6 z-40 w-12 h-12 bg-pinkSoft text-white rounded-full flex items-center justify-center text-lg shadow-lg opacity-0 pointer-events-none transition-all duration-300 hover:bg-pinkLight hover:scale-110">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 800, once: true, offset: 100 });
+
+        // Sticky Navbar & Back to Top Button
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+                backToTop.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                navbar.classList.remove('shadow-md');
+                backToTop.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Dark Mode Toggle
+        const html = document.documentElement;
+        const themeToggles = [document.getElementById('theme-toggle'), document.getElementById('theme-toggle-mobile')];
+        const themeIcons = [document.getElementById('theme-icon'), document.getElementById('theme-icon-mobile')];
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            html.classList.add('dark');
+            themeIcons.forEach(icon => { icon.classList.replace('fa-moon', 'fa-sun'); });
+        }
+        themeToggles.forEach(toggle => {
+            toggle.addEventListener('click', () => {
+                html.classList.toggle('dark');
+                const isDark = html.classList.contains('dark');
+                localStorage.theme = isDark ? 'dark' : 'light';
+                themeIcons.forEach(icon => isDark ? icon.classList.replace('fa-moon', 'fa-sun') : icon.classList.replace('fa-sun', 'fa-moon'));
+            });
+        });
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+
+        // Typing Effect
+        const textArray = ["Web Developer", "Python Programmer", "IT Student"];
+        let textIndex = 0; let charIndex = 0; let isDeleting = false;
+        const typingEl = document.getElementById('typing-text');
+        function type() {
+            const currentText = textArray[textIndex];
+            if (isDeleting) { typingEl.textContent = currentText.substring(0, charIndex - 1); charIndex--; }
+            else { typingEl.textContent = currentText.substring(0, charIndex + 1); charIndex++; }
+            let typeSpeed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentText.length) { typeSpeed = 2000; isDeleting = true; }
+            else if (isDeleting && charIndex === 0) { isDeleting = false; textIndex = (textIndex + 1) % textArray.length; typeSpeed = 500; }
+            setTimeout(type, typeSpeed);
+        }
+        setTimeout(type, 1000);
+
+        // DATA PROJECT
+        const modal = document.getElementById('project-modal');
+        const modalContent = document.getElementById('modal-content');
+        
+        const projectsData = {
+            'modal1': {
+                title: 'Platform EBeTech',
+                img: 'https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=EBeTech+Platform',
+                tech: ['HTML', 'CSS', 'JavaScript', 'PHP'],
+                desc: 'Platform edukasi digital yang dirancang untuk memberikan informasi komprehensif mengenai infrastruktur pembangkit listrik energi terbarukan di Indonesia. Fitur utama mencakup materi interaktif dan kuis.',
+                githubLink: 'https://github.com/yulianidewisahrina-droid/FoodSaver-Mobile.git',
+                demoLink: '#' 
+            },
+            'modal2': {
+                title: 'Smart Parking RFID',
+                img: 'https://via.placeholder.com/600x400/FFC0CB/FFFFFF?text=Smart+Parking+RFID',
+                tech: ['IoT', 'Database', 'Microcontroller'],
+                desc: 'Sistem parkir cerdas berbasis RFID yang diimplementasikan untuk meningkatkan efisiensi waktu akses kendaraan di area kampus. Terintegrasi dengan database real-time untuk pemantauan slot parkir.',
+                githubLink: 'https://github.com/yulianidewisahrina-droid/Fashion-UMKM-menggunakan-Boostrap.git',
+                demoLink: '#' 
+            },
+            'modal3': {
+                title: 'QR Facility Reporter',
+                img: 'https://via.placeholder.com/600x400/FFB6C1/FFFFFF?text=Facility+Report+App',
+                tech: ['AppSheet', 'Google Sheets', 'WhatsApp API'],
+                desc: 'Aplikasi pelaporan perbaikan fasilitas yang dikembangkan saat magang di PLN. Menggunakan metode scan QR Code di setiap ruangan untuk membuat laporan otomatis yang terhubung ke WhatsApp teknisi.',
+                githubLink: 'https://github.com/yulianidewisahrina-droid/LandingPages.git',
+                demoLink: 'https://yulianidewisahrina-droid.github.io/LandingPages/' 
+            }
+        };
+
+        window.openModal = function(id) {
+            const data = projectsData[id];
+            document.getElementById('modal-title').textContent = data.title;
+            document.getElementById('modal-img').src = data.img;
+            document.getElementById('modal-desc').textContent = data.desc;
+            
+            document.getElementById('modal-github').href = data.githubLink;
+            document.getElementById('modal-demo').href = data.demoLink;
+
+            if(data.demoLink === '#') {
+                document.getElementById('modal-demo').style.display = 'none';
+            } else {
+                document.getElementById('modal-demo').style.display = 'flex';
+            }
+            
+            const techContainer = document.getElementById('modal-tech');
+            techContainer.innerHTML = '';
+            data.tech.forEach(t => {
+                const span = document.createElement('span');
+                span.className = 'text-xs px-3 py-1 bg-pinkLight/20 text-pinkSoft rounded-full font-medium border border-pinkSoft/30';
+                span.textContent = t;
+                techContainer.appendChild(span);
+            });
+
+            modal.classList.remove('hidden');
+            setTimeout(() => {
+                modal.classList.remove('opacity-0');
+                modalContent.classList.remove('scale-95');
+            }, 10);
+            document.body.style.overflow = 'hidden'; 
+        }
+
+        window.closeModal = function() {
+            modal.classList.add('opacity-0');
+            modalContent.classList.add('scale-95');
+            setTimeout(() => { modal.classList.add('hidden'); }, 300);
+            document.body.style.overflow = 'auto'; 
+        }
+
+        modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    </script>
+</body>
+</html>
